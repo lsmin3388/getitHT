@@ -1,2 +1,0 @@
-# getitHT
-GET IT Hackathon

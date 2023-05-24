@@ -1,0 +1,37 @@
+nav {
+    width: 100%;
+    height: var(--nav-height);
+
+    background-color: var(--color-1);
+    color: var(--color-4);
+
+    position: fixed;
+}
+
+nav ul {
+    width: var(--content-width);
+    max-width: var(--content-max-width);
+    margin: 0px auto;
+
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    list-style: none;
+    height: var(--nav-height);
+}
+
+nav a {
+    text-decoration: none;
+
+    height: var(--nav-height);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+nav a:visited {
+    color: var(--color-4);
+    text-decoration: none;
+}
