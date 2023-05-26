@@ -20,6 +20,7 @@ import {
     increaseBitter,
     increaseSparkle,
 } from "../store/questionMainSlice";
+import { BASE_URL } from "../env/baseurl";
 
 export default function QuestionPageClear() {
     const dispatch = useDispatch();
@@ -92,8 +93,12 @@ export default function QuestionPageClear() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
-        axios
-            .post("/api/characters/create/1", serverData)
+        axios({
+            url: "/api/characters/create/1",
+            method: "post",
+            data: serverData,
+            baseURL: BASE_URL,
+        })
             .then(() => {
                 console.log("POST : request success!");
                 navigate("/result");

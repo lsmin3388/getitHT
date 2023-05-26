@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { increaseClear, increaseFruit, increaseRaw, increaseSoju, initalizeStates } from "../store/questionSlice";
 import axios from "axios";
-
+import { BASE_URL } from "../env/baseurl";
 import Question from "../components/Question";
 
 import "./QuestionPage.css";
@@ -60,39 +60,26 @@ export default function QuestionPage() {
 
     useEffect(() => {
         // questionSlice state 변경 이후 (다음 버튼 클릭시)
-        axios
-            .post("/api/members/alcoholtype_save/1", question)
-            .then(() => {
-                // 가장 가중치 높은 페이지로 navigate
-                let maxWeight = { type: "", weight: 0 };
+        axios({
+            url: "/api/members/alcoholtype_save/1",
+            method: "post",
+            data: question,
+            baseURL: BASE_URL,
+        }).then(() => {
+            // 가장 가중치 높은 페이지로 navigate
+            let maxWeight = { type: "", weight: 0 };
 
-                for (const q in question) {
-                    console.log(q, question[q]);
-                    if (maxWeight["weight"] < question[q]) {
-                        maxWeight["type"] = q;
-                        maxWeight["weight"] = question[q];
-                    }
+            for (const q in question) {
+                console.log(q, question[q]);
+                if (maxWeight["weight"] < question[q]) {
+                    maxWeight["type"] = q;
+                    maxWeight["weight"] = question[q];
                 }
+            }
 
-                if (maxWeight["type"] != "") navigate(`/${maxWeight["type"]}`);
-            })
-            .catch(() => {
-                console.log("POST : request failed!");
-            })
-            .finally(() => {
-                // 가장 가중치 높은 페이지로 navigate
-                let maxWeight = { type: "", weight: 0 };
-
-                for (const q in question) {
-                    console.log(q, question[q]);
-                    if (maxWeight["weight"] < question[q]) {
-                        maxWeight["type"] = q;
-                        maxWeight["weight"] = question[q];
-                    }
-                }
-
-                if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
-            });
+            if (maxWeight["type"] != "") navigate(`/${maxWeight["type"]}`);
+            console.log("POST : request success!");
+        });
     }, [question]);
 
     useEffect(() => {

@@ -8,6 +8,8 @@ import { initalizeStates } from "../store/questionSlice";
 import { initializeRaw } from "../store/questionMainSlice";
 import "./FormPage.css";
 
+import { BASE_URL } from "../env/baseurl";
+
 export default function FormPage() {
     const dispatch = useDispatch();
     const question = useSelector((state) => state.question.value);
@@ -102,14 +104,27 @@ export default function FormPage() {
                                 };
                                 console.log(data);
 
-                                axios
-                                    .post("/api/members/create", data)
+                                axios({
+                                    url: "api/members/create",
+                                    method: "post",
+                                    data: data,
+                                    baseURL: BASE_URL,
+                                })
                                     .then(() => {
-                                        console.log("post success!");
+                                        console.log("POST : request success!");
                                     })
                                     .catch(() => {
-                                        console.log("post failed!");
+                                        console.log("POST : request failed!");
                                     });
+
+                                // axios
+                                //     .post("/api/members/create", data)
+                                //     .then(() => {
+                                //         console.log("post success!");
+                                //     })
+                                //     .catch(() => {
+                                //         console.log("post failed!");
+                                //     });
                             }}
                         >
                             다음

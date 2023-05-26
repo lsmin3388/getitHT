@@ -19,6 +19,7 @@ import {
     increaseBitter,
     increaseSparkle,
 } from "../store/questionMainSlice";
+import { BASE_URL } from "../env/baseurl";
 
 export default function QuestionPageSoju() {
     const dispatch = useDispatch();
@@ -93,8 +94,12 @@ export default function QuestionPageSoju() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
-        axios
-            .post("/api/characters/soju_save/1", serverData)
+        axios({
+            url: "/api/characters/soju_save/1",
+            method: "post",
+            data: serverData,
+            baseURL: BASE_URL,
+        })
             .then(() => {
                 console.log("POST : request success!");
                 navigate("/result");
