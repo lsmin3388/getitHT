@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class MembersController {
     private final MembersService membersService;
 
+    // create
     @PostMapping("/members/create")
     public ResponseEntity<Members> create(@RequestBody Members members) {
 
@@ -24,18 +25,30 @@ public class MembersController {
                 .body(membersService.save(members));
     }
 
+    // alcoholtype save
+    @PostMapping("/members/alcoholtype_save/{id}")
+    public ResponseEntity<Members> alcohol_save(@RequestBody Members members, @PathVariable("id") Long memberid) {
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(membersService.alcoholtype_save(members, memberid));
+    }
+
+    // read
     @GetMapping("/members/{id}")
     public ResponseEntity<Members> read(@PathVariable("id") Long id) {
         return ResponseEntity
                 .ok(membersService.findById(id));
     }
 
+    // update
     @PutMapping("/members/{id}")
     public ResponseEntity<Members> read(@PathVariable("id") Long id, @RequestBody Members members) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(membersService.update(members, id));
     }
 
+    // delete
     @DeleteMapping("/members/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable("id") Long id) {
         membersService.delete(id);

@@ -4,11 +4,13 @@ import com.getit.Question.domain.Characters;
 import com.getit.Question.repository.CharacterRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class CharacterService {
     private final CharacterRepository characterRepository;
 
@@ -27,7 +29,7 @@ public class CharacterService {
     // 증류주 create
     public Characters soju_save(Characters characters) {
         return characterRepository.save(
-                new Characters(characters.getSweet(), characters.getSour(), characters.getBitter(), characters.getBody_taste(), characters.getSparkle(), characters.getAlcohol(), characters.getScent(), characters.getScent_version(), characters.getSweety(), characters.getFlowery(), characters.getNutty())
+                new Characters(characters.getSweet(), characters.getLinger(), characters.getBody_taste(), characters.getAlcohol(), characters.getScent(), characters.getScent_version(), characters.getSweety(), characters.getFlowery(), characters.getNutty())
         );
     }
 
@@ -56,10 +58,8 @@ public class CharacterService {
     public Characters soju_update(Characters characters, Long id) {
         Characters soju_Characters = characterRepository.findById(id).get();
         soju_Characters.setSweet(characters.getSweet());
-        soju_Characters.setSour(characters.getSour());
-        soju_Characters.setBitter(characters.getBitter());
+        soju_Characters.setLinger(characters.getLinger());
         soju_Characters.setBody_taste(characters.getBody_taste());
-        soju_Characters.setSparkle(characters.getSparkle());
         soju_Characters.setAlcohol(characters.getAlcohol());
         soju_Characters.setScent(characters.getScent());
         soju_Characters.setScent_version(characters.getScent_version());
