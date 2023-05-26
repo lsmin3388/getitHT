@@ -66,9 +66,65 @@ public class CharacterService {
         return characterRepository.save(create_characters);
     }
 
+    /*
+clear
+# 단맛 산미 씁슬 바디 탄산(=0) 도수
+fruit
+# 단맛 산미 씁슬 바디 탄산 도수
+raw
+# 단맛 산미 씁슬 바디 탄산 도수
+soju
+# 달콤 고소 화사 향의강도 단맛 여운 바디 도수
+ */
     // read
-    public Characters findById(Long id) {
-        return characterRepository.findById(id).get();
+    public Long[] clear_findById(Long id) {
+        Members members = memberRepository.findById(id).get();
+        Characters characters = members.getCharacters();
+
+        Long[] arr={
+                characters.getSweet(),
+                characters.getSour(),
+                characters.getBitter(), characters.getBody_taste(), 0L, characters.getAlcohol()
+        };
+        return arr;
+    }
+    public Long[] raw_findById(Long id) {
+        Members members = memberRepository.findById(id).get();
+        Characters characters = members.getCharacters();
+
+        Long[] arr={
+                characters.getSweet(),
+                characters.getSour(),
+                characters.getBitter(), characters.getBody_taste(), characters.getSparkle(), characters.getAlcohol()
+        };
+        return arr;
+    }
+    public Long[] soju_findById(Long id) {
+        Members members = memberRepository.findById(id).get();
+        Characters characters = members.getCharacters();
+
+        Long[] arr={
+                characters.getSweety(),
+                characters.getNutty(),
+                characters.getFlowery(),
+                characters.getScent(),
+                characters.getSweet(),
+                characters.getLinger(),
+                characters.getBody_taste(),
+                characters.getAlcohol()
+        };
+        return arr;
+    }
+    public Long[] fruit_findById(Long id) {
+        Members members = memberRepository.findById(id).get();
+        Characters characters = members.getCharacters();
+
+        Long[] arr={
+                characters.getSweet(),
+                characters.getSour(),
+                characters.getBitter(), characters.getBody_taste(), characters.getSparkle(), characters.getAlcohol()
+        };
+        return arr;
     }
 
     public List<Characters> findAll() {

@@ -33,6 +33,10 @@ public class Characters {
     private Long nutty;
     private Long Flowery;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "member_id")
+    private Members members;
+
 
     // 탁주 생성자
     public Characters( Long sweet, Long sour, Long bitter, Long body_taste, Long sparkle, Long alcohol) {

@@ -34,11 +34,39 @@ public class CharacterController {
                 .body(characterService.soju_save(characters, member_id));
     }
 
+    /*
+clear
+# 단맛 산미 씁슬 바디 탄산(=0) 도수
+fruit
+# 단맛 산미 씁슬 바디 탄산 도수
+raw
+# 단맛 산미 씁슬 바디 탄산 도수
+soju
+# 달콤 고소 화사 향의강도 단맛 여운 바디 도수
+ */
     // read
-    @GetMapping("/characters/{id}")
-    public ResponseEntity<Characters> read(@PathVariable("id") Long member_id) {
+    @GetMapping("/characters/clear/{id}")
+    public ResponseEntity<Long[]> clear_read(@PathVariable("id") Long member_id) {
         return ResponseEntity
-                .ok(characterService.findById(member_id));
+                .ok(characterService.clear_findById(member_id));
+    }
+
+    @GetMapping("/characters/fruit/{id}")
+    public ResponseEntity<Long[]> fruit_read(@PathVariable("id") Long member_id) {
+        return ResponseEntity
+                .ok(characterService.fruit_findById(member_id));
+    }
+
+    @GetMapping("/characters/raw/{id}")
+    public ResponseEntity<Long[]> raw_read(@PathVariable("id") Long member_id) {
+        return ResponseEntity
+                .ok(characterService.raw_findById(member_id));
+    }
+
+    @GetMapping("/characters/soju/{id}")
+    public ResponseEntity<Long[]> soju_read(@PathVariable("id") Long member_id) {
+        return ResponseEntity
+                .ok(characterService.soju_findById(member_id));
     }
 
 
