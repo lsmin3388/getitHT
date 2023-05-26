@@ -26,6 +26,7 @@ public class MembersService {
                         members.getAge(),
                         members.getSex(),
                         members.getFavorite(),
+                        members.getRegion(),
                         members.getCharacters()
                 )
         );
@@ -81,6 +82,7 @@ public class MembersService {
         update_members.setAge(members.getAge());
         update_members.setSex(members.getSex());
         update_members.setFavorite(members.getFavorite());
+        update_members.setRegion(members.getRegion());
         update_members.setCharacters(members.getCharacters());
         return memberRepository.save(update_members);
     }

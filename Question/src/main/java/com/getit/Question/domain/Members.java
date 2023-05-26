@@ -22,6 +22,7 @@ public class Members {
     private Long age;
     private String sex;
     private String favorite;
+    private String region;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "character_id")
@@ -38,10 +39,11 @@ public class Members {
     private Long fruit;
     private String Alcohol_Type;
 
-    public Members(Long age, String sex, String favorite, Characters characters) {
+    public Members(Long age, String sex, String favorite, String region, Characters characters) {
         this.age = age;
         this.sex = sex;
         this.favorite = favorite;
+        this.region = region;
         this.characters = characters;
     }
 
