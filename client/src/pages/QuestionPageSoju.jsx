@@ -66,7 +66,7 @@ export default function QuestionPageSoju() {
     }
 
     function onNextBtnClick() {
-        console.log("onNextBtnClick");
+        // console.log("onNextBtnClick");
         let questionContainers = document.querySelectorAll(".question-radio-container-soju");
 
         for (let questionIndex = 0; questionIndex < questionContainers.length; questionIndex++) {
@@ -93,8 +93,9 @@ export default function QuestionPageSoju() {
         }
 
         axios
-            .post("/api/characters/create/1", serverData)
+            .post("/api/characters/soju_save/1", serverData)
             .then(() => {
+                console.log("POST : request success!");
                 navigate("/result");
             })
             .catch(() => {
@@ -102,7 +103,7 @@ export default function QuestionPageSoju() {
             })
             .finally(() => {
                 console.log(questionMain);
-                console.log(serverData);
+                // console.log(serverData);
                 // navigate("/result");
             });
     }, [questionMain]);
@@ -120,7 +121,6 @@ export default function QuestionPageSoju() {
     return (
         <>
             <div className="question-section-wrapper">
-                <h1>SOJU</h1>
                 {questionSoju.map((element, index) => {
                     return <Question type="soju" index={index} qString={questionSoju[index]["qString"]} qWeightArray={questionSoju[index]["qWeight"]}></Question>;
                 })}

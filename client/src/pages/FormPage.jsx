@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
+import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { initalizeStates } from "../store/questionSlice";
@@ -25,7 +25,7 @@ export default function FormPage() {
                     <div className="input-container">
                         <Form.Group className="form-input-name form-group">
                             <Form.Label>이름</Form.Label>
-                            <Form.Control type="text" placeholder="이름을 입력하세요" />
+                            <Form.Control id="form-name" type="text" placeholder="이름을 입력하세요" />
                         </Form.Group>
 
                         <Form.Group className="form-input-sex form-group">
@@ -86,6 +86,20 @@ export default function FormPage() {
                             onClick={() => {
                                 dispatch(initalizeStates());
                                 navigate("/question");
+
+                                axios
+                                    .post("/api/members/create", {
+                                        name: document.querySelector("#form-name"),
+                                        age: null,
+                                        sex: null,
+                                        favorite: null,
+                                    })
+                                    .then(() => {
+                                        console.log("post success!");
+                                    })
+                                    .catch(() => {
+                                        console.log("post failed!");
+                                    });
                             }}
                         >
                             다음

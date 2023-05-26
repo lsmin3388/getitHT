@@ -67,7 +67,7 @@ export default function QuestionPageRaw() {
     }
 
     function onNextBtnClick() {
-        console.log("onNextBtnClick");
+        // console.log("onNextBtnClick");
         let questionContainers = document.querySelectorAll(".question-radio-container-raw");
 
         for (let questionIndex = 0; questionIndex < questionContainers.length; questionIndex++) {
@@ -96,6 +96,7 @@ export default function QuestionPageRaw() {
         axios
             .post("/api/characters/create/1", serverData)
             .then(() => {
+                console.log("POST : request success!");
                 navigate("/result");
             })
             .catch(() => {
@@ -103,8 +104,7 @@ export default function QuestionPageRaw() {
             })
             .finally(() => {
                 console.log(questionMain);
-                console.log(serverData);
-                // navigate("/result");
+                // console.log("serverdata : "serverData);
             });
     }, [questionMain]);
 
