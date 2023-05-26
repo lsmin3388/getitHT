@@ -1,4 +1,4 @@
-export default questionSoju = [
+let questionSoju = [
     {
         qString: "군것질을 즐긴다.",
         qWeight: [
@@ -91,7 +91,7 @@ export default questionSoju = [
             },
         ],
     },
-    
+
     {
         qString: "질문 :위스키를 즐긴다. ",
         qWeight: [
@@ -399,7 +399,7 @@ export default questionSoju = [
             },
         ],
     },
-    
+
     {
         qString: "꽃 향이 나는 술이 좋다.",
         qWeight: [
@@ -957,5 +957,6 @@ export default questionSoju = [
             },
         ],
     },
-    
 ];
+
+export default questionSoju;

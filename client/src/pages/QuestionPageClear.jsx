@@ -1,13 +1,16 @@
 import React from "react";
 
+import Question from "../components/Question";
+import questionClear from "../assets/questionClear";
+
 export default function QuestionPageClear() {
     return (
         <>
             <div className="question-section-wrapper">
                 <h1>CLEAR</h1>
-                {/* {questionDefault.map((element, index) => {
-            return <Question index={index} qString={questionDefault[index]["qString"]} qWeightArray={questionDefault[index]["qWeight"]}></Question>;
-        })} */}
+                {questionClear.map((element, index) => {
+                    return <Question index={index} qString={questionClear[index]["qString"]} qWeightArray={questionClear[index]["qWeight"]}></Question>;
+                })}
             </div>
             <div className="question-control-wrapper">
                 <div className="question-control-container">

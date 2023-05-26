@@ -7,12 +7,12 @@ import { increaseClear, increaseFruit, increaseRaw, increaseSoju } from "../stor
 
 import "./Question.css";
 
-export default function Question({ index, qString, qWeightArray }) {
+export default function Question({ type, index, qString, qWeightArray }) {
     return (
         <div className="question-wrapper">
             <div className="question-container">
                 <h3>{qString}</h3>
-                <div key={`inline-radio`} className="question-radio-container">
+                <div key={`inline-radio`} className={`question-radio-container-${type} question-radio-container`}>
                     <input type="radio" name={`question${index}`} value="0" id={`q${index}-0`} />
                     <input type="radio" name={`question${index}`} value="1" id={`q${index}-1`} />
                     <input type="radio" name={`question${index}`} value="2" id={`q${index}-2`} />

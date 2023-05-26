@@ -1,4 +1,4 @@
-export default questionRaw = [
+let questionRaw = [
     {
         qString: "술은 취하려고 마시는 것이다.",
         qWeight: [
@@ -553,7 +553,7 @@ export default questionRaw = [
             },
         ],
     },
-    
+
     {
         qString: "술을 마실 때 속이 타는 듯한 기분이 좋다.",
         qWeight: [
@@ -771,3 +771,5 @@ export default questionRaw = [
         ],
     },
 ];
+
+export default questionRaw;

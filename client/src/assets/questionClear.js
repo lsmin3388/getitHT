@@ -1,4 +1,4 @@
-export default questionClear = [
+let questionClear = [
     {
         qString: "술에서 느껴지는 쓴 맛에 거부감이 없다.",
         qWeight: [
@@ -619,3 +619,5 @@ export default questionClear = [
         ],
     },
 ];
+
+export default questionClear;

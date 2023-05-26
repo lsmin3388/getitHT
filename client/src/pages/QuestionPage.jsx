@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { increaseClear, increaseFruit, increaseRaw, increaseSoju } from "../store/questionSlice";
+import { increaseClear, increaseFruit, increaseRaw, increaseSoju, initalizeStates } from "../store/questionSlice";
 import axios from "axios";
 
 import Question from "../components/Question";
@@ -10,6 +10,7 @@ import Question from "../components/Question";
 import "./QuestionPage.css";
 
 import questionDefault from "../assets/question";
+import { initializeRaw } from "../store/questionMainSlice";
 
 export default function QuestionPage() {
     const dispatch = useDispatch();
@@ -36,7 +37,7 @@ export default function QuestionPage() {
     }
 
     function onNextBtnClick() {
-        let questionContainers = document.querySelectorAll(".question-radio-container");
+        let questionContainers = document.querySelectorAll(".question-radio-container-default");
 
         for (let questionIndex = 0; questionIndex < questionContainers.length; questionIndex++) {
             for (let radioIndex = 0; radioIndex < questionContainers[questionIndex].childNodes.length; radioIndex++) {
@@ -54,6 +55,7 @@ export default function QuestionPage() {
 
     function onPrevBtnClick() {
         console.log("prev");
+        dispatch(initalizeStates());
     }
 
     useEffect(() => {
@@ -94,6 +96,7 @@ export default function QuestionPage() {
     }, [question]);
 
     useEffect(() => {
+        dispatch(initializeRaw());
         document.querySelector(".btn-question-next").addEventListener("click", onNextBtnClick);
         document.querySelector(".btn-question-prev").addEventListener("click", onPrevBtnClick);
 
@@ -107,7 +110,7 @@ export default function QuestionPage() {
         <>
             <div className="question-section-wrapper">
                 {questionDefault.map((element, index) => {
-                    return <Question index={index} qString={questionDefault[index]["qString"]} qWeightArray={questionDefault[index]["qWeight"]}></Question>;
+                    return <Question type="default" index={index} qString={questionDefault[index]["qString"]} qWeightArray={questionDefault[index]["qWeight"]}></Question>;
                 })}
             </div>
             <div className="question-control-wrapper">

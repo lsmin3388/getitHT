@@ -1,4 +1,4 @@
-export default question = [
+let questionFruit = [
     {
         qString: "'아이셔'를 좋아한다.",
         qWeight: [
@@ -771,3 +771,4 @@ export default question = [
     },
 ];
 
+export default questionFruit;

@@ -1,9 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore, createStore } from "@reduxjs/toolkit";
 
 import questionReducer from "../store/questionSlice";
+import questionMainReducer from "../store/questionMainSlice";
 
-export const store = configureStore({
-    reducer: {
-        question: questionReducer,
-    },
+const rootReducer = combineReducers({
+    question: questionReducer,
+    questionMain: questionMainReducer,
 });
+
+const store = createStore(rootReducer);
+export default store;

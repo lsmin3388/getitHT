@@ -25,8 +25,11 @@ export const questionSlice = createSlice({
         increaseFruit: (state, action) => {
             state.value.fruit += action.payload;
         },
+        initalizeStates: (state) => {
+            state.value = { raw: 0, clear: 0, fruit: 0, soju: 0 };
+        },
     },
 });
 
-export const { increaseRaw, increaseClear, increaseSoju, increaseFruit } = questionSlice.actions;
+export const { increaseRaw, increaseClear, increaseSoju, increaseFruit, initalizeStates } = questionSlice.actions;
 export default questionSlice.reducer;

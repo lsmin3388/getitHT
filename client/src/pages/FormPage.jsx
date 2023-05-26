@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
+import { initalizeStates } from "../store/questionSlice";
+import { initializeRaw } from "../store/questionMainSlice";
 import "./FormPage.css";
 
 export default function FormPage() {
+    const dispatch = useDispatch();
+    const question = useSelector((state) => state.question.value);
     let navigate = useNavigate();
+
+    useEffect(() => {
+        dispatch(initalizeStates());
+        dispatch(initializeRaw());
+    }, []);
 
     return (
         <div className="form-wrapper">
@@ -63,6 +72,7 @@ export default function FormPage() {
                             type="submit"
                             className="btn-common"
                             onClick={() => {
+                                dispatch(initalizeStates());
                                 navigate("/");
                             }}
                         >
@@ -74,6 +84,7 @@ export default function FormPage() {
                             type="submit"
                             className="btn-highlight"
                             onClick={() => {
+                                dispatch(initalizeStates());
                                 navigate("/question");
                             }}
                         >
