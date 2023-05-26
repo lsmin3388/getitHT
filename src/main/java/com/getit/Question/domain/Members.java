@@ -1,6 +1,7 @@
 package com.getit.Question.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,10 +10,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "Members")
+@NoArgsConstructor
 public class Members {
-
-    public Members() {
-    }
 
     @Id
     @GeneratedValue
@@ -24,10 +23,13 @@ public class Members {
     private String sex;
     private String favorite;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "character_id")
     private Characters characters;
 
+    public void setCharacters(Characters characters) {
+        this.characters = characters;
+    }
 
     // 주종 domain
     private Long raw;
@@ -50,4 +52,5 @@ public class Members {
         this.fruit = fruit;
         this.Alcohol_Type = Alcohol_Type;
     }
+
 }

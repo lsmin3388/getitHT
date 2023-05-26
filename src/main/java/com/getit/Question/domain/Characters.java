@@ -1,6 +1,7 @@
 package com.getit.Question.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name="Characters")
+@NoArgsConstructor
 public class Characters {
 
     // 공통 특징
@@ -26,11 +28,10 @@ public class Characters {
 
     // 증류주 특징
     private Long scent;
-    private String scent_version;
     private Long linger;
-    private String sweety;
-    private String nutty;
-    private String Flowery;
+    private Long sweety;
+    private Long nutty;
+    private Long Flowery;
 
 
     // 탁주 생성자
@@ -45,13 +46,12 @@ public class Characters {
 
     // 증류주 생성자
 
-    public Characters( Long sweet, Long linger, Long body_taste, Long alcohol, Long scent, String scent_version, String sweety, String nutty, String flowery) {
+    public Characters( Long sweet, Long linger, Long body_taste, Long alcohol, Long scent, Long sweety, Long nutty, Long flowery) {
         this.sweet = sweet;
         this.linger = linger;
         this.body_taste = body_taste;
         this.alcohol = alcohol;
         this.scent = scent;
-        this.scent_version = scent_version;
         this.sweety = sweety;
         this.nutty = nutty;
         this.Flowery = flowery;
