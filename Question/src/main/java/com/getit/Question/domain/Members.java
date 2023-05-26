@@ -28,6 +28,10 @@ public class Members {
     @JoinColumn(name = "character_id")
     private Characters characters;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "result_id")
+    private Results results;
+
     public void setCharacters(Characters characters) {
         this.characters = characters;
     }

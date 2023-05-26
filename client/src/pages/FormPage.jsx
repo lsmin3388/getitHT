@@ -102,14 +102,26 @@ export default function FormPage() {
                                 };
                                 console.log(data);
 
-                                axios
-                                    .post("/api/members/create", data)
-                                    .then(() => {
-                                        console.log("post success!");
-                                    })
-                                    .catch(() => {
-                                        console.log("post failed!");
-                                    });
+                                axios(
+                                    {
+                                        url:"/api/members/create",
+                                        method:"post",
+                                        data:data,
+                                        baseURL:"http://localhost:8080"
+                                    }
+                                ).then(() =>{
+                                    console.log("success");
+                                }).catch(()=>{
+                                    console.log("fail");
+                                })
+                                // axios
+                                //     .post("/api/members/create", data)
+                                //     .then(() => {
+                                //         console.log("post success!");
+                                //     })
+                                //     .catch(() => {
+                                //         console.log("post failed!");
+                                //     });
                             }}
                         >
                             다음
