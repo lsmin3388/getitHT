@@ -76,6 +76,7 @@ export default function QuestionPageFruit() {
         }
         // redux store questionRawSlice 의 state 가 변경되면
         // useEffect(() => {}, [questionRaw]) 이 다음으로 실행됨
+        navigate("/result");
     }
     function onPrevBtnClick() {
         dispatch(initializeRaw());
@@ -98,6 +99,7 @@ export default function QuestionPageFruit() {
             })
             .catch(() => {
                 console.log("POST : request fail!");
+                // navigate("/result");
             })
             .finally(() => {
                 console.log(questionMain);

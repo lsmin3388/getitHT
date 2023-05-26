@@ -36,8 +36,8 @@ export default function FormPage() {
                         </Form.Group>
 
                         <Form.Group className="form-input-region form-group">
-                            <Form.Label htmlFor="form-dropdown-region">거주 지역</Form.Label>
-                            <Form.Select id="form-dropdown-region">
+                            <Form.Label htmlFor="form-dropdown-region-1">거주 지역</Form.Label>
+                            <Form.Select id="form-dropdown-region-1">
                                 <option>지역을 선택해주세요</option>
                                 <option>서울특별시</option>
                                 <option>부산광역시</option>
@@ -59,9 +59,13 @@ export default function FormPage() {
                         </Form.Group>
 
                         <Form.Group className="form-input-type form-group">
-                            <Form.Label htmlFor="form-dropdown-region">선호 주종</Form.Label>
-                            <Form.Select id="form-dropdown-region">
+                            <Form.Label htmlFor="form-dropdown-region-2">선호 주종</Form.Label>
+                            <Form.Select id="form-dropdown-region-2">
                                 <option>선호 주종을 선택해주세요</option>
+                                <option>증류주</option>
+                                <option>소주</option>
+                                <option>탁주</option>
+                                <option>과실주</option>
                             </Form.Select>
                         </Form.Group>
                     </div>
@@ -87,13 +91,19 @@ export default function FormPage() {
                                 dispatch(initalizeStates());
                                 navigate("/question");
 
+                                const dropdownRegion = document.querySelector("#form-dropdown-region-1");
+                                const dropdownPrefer = document.querySelector("#form-dropdown-region-2");
+
+                                let data = {
+                                    name: null,
+                                    age: 23,
+                                    sex: document.querySelector("#form-sex-male").checked ? "male" : document.querySelector("#form-sex-female") ? "female" : null,
+                                    favorite: dropdownPrefer.options[dropdownPrefer.selectedIndex].text,
+                                };
+                                console.log(data);
+
                                 axios
-                                    .post("/api/members/create", {
-                                        name: document.querySelector("#form-name"),
-                                        age: null,
-                                        sex: null,
-                                        favorite: null,
-                                    })
+                                    .post("/api/members/create", data)
                                     .then(() => {
                                         console.log("post success!");
                                     })

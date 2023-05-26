@@ -10,6 +10,7 @@ import QuestionPageRaw from "./pages/QuestionPageRaw";
 import QuestionPageClear from "./pages/QuestionPageClear";
 import QuestionPageSoju from "./pages/QuestionPageSoju";
 import QuestionPageFruit from "./pages/QuestionPageFruit";
+import ResultPage from "./pages/ResultPage";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/question_clear" element={<QuestionPageClear></QuestionPageClear>}></Route>
                 <Route path="/question_soju" element={<QuestionPageSoju></QuestionPageSoju>}></Route>
                 <Route path="/question_fruit" element={<QuestionPageFruit></QuestionPageFruit>}></Route>
+                <Route path="/result" element={<ResultPage></ResultPage>}></Route>
             </Routes>
         </div>
     );
