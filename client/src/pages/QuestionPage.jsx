@@ -65,21 +65,34 @@ export default function QuestionPage() {
             method: "post",
             data: question,
             baseURL: BASE_URL,
-        }).then(() => {
-            // 가장 가중치 높은 페이지로 navigate
-            let maxWeight = { type: "", weight: 0 };
+        })
+            .then(() => {
+                // 가장 가중치 높은 페이지로 navigate
+                let maxWeight = { type: "", weight: 0 };
 
-            for (const q in question) {
-                console.log(q, question[q]);
-                if (maxWeight["weight"] < question[q]) {
-                    maxWeight["type"] = q;
-                    maxWeight["weight"] = question[q];
+                for (const q in question) {
+                    console.log(q, question[q]);
+                    if (maxWeight["weight"] < question[q]) {
+                        maxWeight["type"] = q;
+                        maxWeight["weight"] = question[q];
+                    }
                 }
-            }
 
-            if (maxWeight["type"] != "") navigate(`/${maxWeight["type"]}`);
-            console.log("POST : request success!");
-        });
+                if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
+                console.log("POST : request success!");
+            })
+            .catch(() => {
+                console.log("POST : request fail!");
+                let maxWeight = { type: "", weight: 0 };
+
+                for (const q in question) {
+                    if (maxWeight["weight"] < question[q]) {
+                        maxWeight["type"] = q;
+                        maxWeight["weight"] = question[q];
+                    }
+                }
+                if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
+            });
     }, [question]);
 
     useEffect(() => {

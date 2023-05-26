@@ -112,6 +112,7 @@ export default function FormPage() {
                                 })
                                     .then(() => {
                                         console.log("POST : request success!");
+                                        // navigate("/question");
                                     })
                                     .catch(() => {
                                         console.log("POST : request failed!");

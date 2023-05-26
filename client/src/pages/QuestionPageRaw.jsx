@@ -20,7 +20,6 @@ import {
     increaseBitter,
     increaseSparkle,
 } from "../store/questionMainSlice";
-import { BASE_URL } from "../env/baseurl";
 
 export default function QuestionPageRaw() {
     const dispatch = useDispatch();
@@ -68,7 +67,7 @@ export default function QuestionPageRaw() {
     }
 
     function onNextBtnClick() {
-        // console.log("onNextBtnClick");
+        console.log("onNextBtnClick");
         let questionContainers = document.querySelectorAll(".question-radio-container-raw");
 
         for (let questionIndex = 0; questionIndex < questionContainers.length; questionIndex++) {
@@ -80,7 +79,6 @@ export default function QuestionPageRaw() {
         }
         // redux store questionRawSlice 의 state 가 변경되면
         // useEffect(() => {}, [questionRaw]) 이 다음으로 실행됨
-        navigate("/result");
     }
     function onPrevBtnClick() {
         dispatch(initializeRaw());
@@ -95,23 +93,19 @@ export default function QuestionPageRaw() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
-        axios({
-            url: "/api/characters/create/1",
-            method: "post",
-            data: serverData,
-            baseURL: BASE_URL,
-        })
+        axios
+            .post("/api/characters/create/1", serverData)
             .then(() => {
                 console.log("POST : request success!");
                 navigate("/result");
             })
             .catch(() => {
                 console.log("POST : request fail!");
-                // navigate("/result");
             })
             .finally(() => {
                 console.log(questionMain);
-                // console.log("serverdata : "serverData);
+                console.log(serverData);
+                // navigate("/result");
             });
     }, [questionMain]);
 

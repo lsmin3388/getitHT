@@ -19,7 +19,6 @@ import {
     increaseBitter,
     increaseSparkle,
 } from "../store/questionMainSlice";
-import { BASE_URL } from "../env/baseurl";
 
 export default function QuestionPageSoju() {
     const dispatch = useDispatch();
@@ -79,7 +78,6 @@ export default function QuestionPageSoju() {
         }
         // redux store questionRawSlice 의 state 가 변경되면
         // useEffect(() => {}, [questionRaw]) 이 다음으로 실행됨
-        navigate("/result");
     }
     function onPrevBtnClick() {
         dispatch(initializeRaw());
@@ -94,19 +92,14 @@ export default function QuestionPageSoju() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
-        axios({
-            url: "/api/characters/soju_save/1",
-            method: "post",
-            data: serverData,
-            baseURL: BASE_URL,
-        })
+        axios
+            .post("/api/characters/soju_save/1", serverData)
             .then(() => {
                 console.log("POST : request success!");
                 navigate("/result");
             })
             .catch(() => {
                 console.log("POST : request fail!");
-                // navigate("/result");
             })
             .finally(() => {
                 console.log(questionMain);

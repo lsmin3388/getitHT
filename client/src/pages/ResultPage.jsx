@@ -26,13 +26,13 @@ export default function ResultPage() {
         let maxWeight = { type: "", weight: 0 };
 
         for (const q in question) {
-            console.log(q, question[q]);
+            // console.log(q, question[q]);
             if (maxWeight["weight"] < question[q]) {
                 maxWeight["type"] = q;
                 maxWeight["weight"] = question[q];
             }
         }
-        console.log(maxWeight);
+        // console.log(maxWeight);
 
         // document.querySelector(".item-hover").addEventListener("hover", onHoverHandler);
 
