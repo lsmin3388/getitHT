@@ -6,12 +6,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: var(--color-4);
 }
 .form-container {
-    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
 }
 .btn-container {
@@ -19,7 +30,7 @@
     flex-direction: row;
     justify-content: space-between;
 
-    margin-top: auto;
+    margin-top: 50px;
 }
 .btn-container button {
     display: block;
@@ -35,6 +46,7 @@ form {
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .form-group {

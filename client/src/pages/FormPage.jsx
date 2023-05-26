@@ -10,8 +10,8 @@ export default function FormPage() {
     let navigate = useNavigate();
 
     return (
-        <div className="form-wrapper wrapper">
-            <div className="form-container container">
+        <div className="form-wrapper">
+            <div className="form-container">
                 <Form>
                     <div className="input-container">
                         <Form.Group className="form-input-name form-group">

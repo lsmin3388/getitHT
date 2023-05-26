@@ -13,10 +13,16 @@ export default function NavBar() {
                     <Link to="/">Alch-holic</Link>
                 </li>
                 <li>
-                    <Link>link1</Link>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link>link2</Link>
+                    <Link to="/about">About</Link>
+                </li>
+                <li>
+                    <Link to="/shop">Shop</Link>
+                </li>
+                <li>
+                    <Link to="/form">검사하기</Link>
                 </li>
             </ul>
         </nav>

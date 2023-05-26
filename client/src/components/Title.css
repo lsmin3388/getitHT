@@ -1,0 +1,19 @@
+.title-wrapper {
+    display: block;
+    width: 80%;
+    max-width: 1200px;
+
+    margin: 0px auto;
+}
+
+.title-wrapper h3,
+h5 {
+    margin: 0;
+}
+
+.title-wrapper h5 {
+    font-size: 0.8rem;
+}
+.title-wrapper h3 {
+    font-size: 1.2rem;
+}

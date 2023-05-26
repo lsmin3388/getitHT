@@ -1,31 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+// import { increaseRaw, increaseClear, increaseSoju, increaseFruit } from "../store/questionSlice";
 
-import Button from "react-bootstrap/Button";
 import Question from "../components/Question";
-import { useNavigate } from "react-router-dom";
 
 import "./QuestionPage.css";
 
+let qWeight = [
+    {
+        type: "raw",
+        weight: 4,
+    },
+    {
+        type: "clear",
+        weight: 2,
+    },
+    {
+        type: "soju",
+        weight: 4,
+    },
+    {
+        type: "fruit",
+        weight: 4,
+    },
+    {
+        type: "raw",
+        weight: 4,
+    },
+];
+
 export default function QuestionPage() {
-    let navigate = useNavigate();
-    let [questions, setQuestions] = useState(["question1", "question2", "question3"]);
+    const question = useSelector((state) => state.question.value);
+    // const dispatch = useDispatch();
 
     return (
-        <div className="question-wrapper wrapper">
-            {questions.map((question, index) => {
-                return <Question question={question}></Question>;
-            })}
-
-            <Button
-                variant="primary"
-                type="submit"
-                className="btn-highlight btn-outside"
-                onClick={() => {
-                    navigate("/question/2");
-                }}
-            >
-                다음
-            </Button>
+        <div className="question-section-wrapper">
+            <div>
+                <h1>{`raw : ${question.raw}`}</h1>
+                <h1>{`clear : ${question.clear}`}</h1>
+                <h1>{`soju : ${question.soju}`}</h1>
+                <h1>{`fruit : ${question.fruit}`}</h1>
+            </div>
+            <Question index={0} qString={"질문예시1"} qWeightArray={qWeight}></Question>
+            <Question index={1} qString={"질문예시2"} qWeightArray={qWeight}></Question>
         </div>
     );
 }

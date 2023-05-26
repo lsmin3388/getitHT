@@ -22,6 +22,10 @@ nav ul li {
     height: var(--nav-height);
 }
 
+nav ul li:first-child {
+    flex-grow: 2;
+}
+
 nav a {
     text-decoration: none;
 
