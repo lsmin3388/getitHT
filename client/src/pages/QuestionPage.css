@@ -1,3 +1,32 @@
 .question-section-wrapper {
     padding-top: var(--nav-height);
 }
+
+.question-control-wrapper {
+    width: 100%;
+}
+
+.question-control-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
+.btn-question {
+    width: 120px;
+    height: 40px;
+    border: none;
+
+    border-radius: 20px;
+}
+.btn-question:hover {
+    cursor: pointer;
+}
+
+.btn-question-prev {
+    background-color: var(--color-4);
+}
+.btn-question-next {
+    background-color: var(--color-3);
+}

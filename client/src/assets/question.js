@@ -1,6 +1,10 @@
-export default question = [
+let questionDefault = [
     {
+<<<<<<< HEAD
         qString: "도수가 높은 술이 좋다.",
+=======
+        qString: "질문 : 도수가 높은 술이 좋다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -30,7 +34,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "꾸덕한 음료를 좋아한다",
+=======
+        qString: "질문 : 꾸덕한 음료를 좋아한다",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -60,7 +68,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "평소에 숙취를 잘 느끼지 못한다.",
+=======
+        qString: "질문 : 평소에 숙취를 잘 느끼지 못한다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -90,7 +102,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "칵테일을 좋아한다.",
+=======
+        qString: "질문 : 칵테일을 좋아한다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -120,7 +136,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "고소한 맛을 좋아한다.",
+=======
+        qString: "질문 : 고소한 맛을 좋아한다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -150,7 +170,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "누룩맛을 좋아한다.",
+=======
+        qString: "질문 : 누룩맛을 좋아한다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -180,7 +204,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "소주를 좋아한다.",
+=======
+        qString: "질문 : 소주를 좋아한다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -210,7 +238,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "슬을 마셨을 때, 타는 듯한 목넘김이 좋다.",
+=======
+        qString: "질문 : 슬을 마셨을 때, 타는 듯한 목넘김이 좋다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -240,7 +272,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "숙취가 없는 술이 좋다.",
+=======
+        qString: "질문 : 숙취가 없는 술이 좋다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -270,7 +306,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "과일향을 좋아한다.",
+=======
+        qString: "질문 : 과일향을 좋아한다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -300,7 +340,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "막걸리를 좋아한다.",
+=======
+        qString: "질문 : 막걸리를 좋아한다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -330,7 +374,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "깔끔한 술이 좋다.",
+=======
+        qString: "질문 : 깔끔한 술이 좋다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -360,7 +408,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "보기에 예쁜 술이 맛도 좋다.",
+=======
+        qString: "질문 : 보기에 예쁜 술이 맛도 좋다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -390,7 +442,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "위스키를 좋아한다.",
+=======
+        qString: "질문 : 위스키를 좋아한다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -420,7 +476,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "사케를 좋아한다.",
+=======
+        qString: "질문 : 사케를 좋아한다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -450,7 +510,11 @@ export default question = [
         ],
     },
     {
+<<<<<<< HEAD
         qString: "음료수같은 술이 좋다.",
+=======
+        qString: "질문 : 음료수같은 술이 좋다.",
+>>>>>>> aefb5faad3dbc490386373656931bd132045824d
         qWeight: [
             {
                 //매우 아니다
@@ -480,3 +544,5 @@ export default question = [
         ],
     },
 ];
+
+export default questionDefault;
