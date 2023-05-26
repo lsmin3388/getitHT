@@ -20,6 +20,7 @@ import {
     increaseBitter,
     increaseSparkle,
 } from "../store/questionMainSlice";
+import { BASE_URL } from "../env/baseurl";
 
 export default function QuestionPageRaw() {
     const dispatch = useDispatch();
@@ -94,7 +95,7 @@ export default function QuestionPageRaw() {
         }
 
         axios
-            .post("/api/characters/create/1", serverData)
+            .post("/api/characters/create/1", serverData, { baseURL: BASE_URL })
             .then(() => {
                 console.log("POST : request success!");
                 navigate("/result");
@@ -104,7 +105,7 @@ export default function QuestionPageRaw() {
             })
             .finally(() => {
                 console.log(questionMain);
-                console.log(serverData);
+                // console.log(serverData);
                 // navigate("/result");
             });
     }, [questionMain]);

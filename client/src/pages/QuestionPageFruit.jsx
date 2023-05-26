@@ -20,6 +20,7 @@ import {
     increaseBitter,
     increaseSparkle,
 } from "../store/questionMainSlice";
+import { BASE_URL } from "../env/baseurl";
 
 export default function QuestionPageFruit() {
     const dispatch = useDispatch();
@@ -92,7 +93,7 @@ export default function QuestionPageFruit() {
         }
 
         axios
-            .post("/api/characters/create/1", serverData)
+            .post("/api/characters/create/1", serverData, { baseURL: BASE_URL })
             .then(() => {
                 console.log("POST : request success!");
                 navigate("/result");
