@@ -6,6 +6,10 @@ import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import FormPage from "./pages/FormPage";
 import QuestionPage from "./pages/QuestionPage";
+import QuestionPageRaw from "./pages/QuestionPageRaw";
+import QuestionPageClear from "./pages/QuestionPageClear";
+import QuestionPageSoju from "./pages/QuestionPageSoju";
+import QuestionPageFruit from "./pages/QuestionPageFruit";
 
 function App() {
     return (
@@ -16,6 +20,10 @@ function App() {
                 <Route path="/" element={<HomePage></HomePage>}></Route>
                 <Route path="/form" element={<FormPage></FormPage>}></Route>
                 <Route path="/question" element={<QuestionPage></QuestionPage>}></Route>
+                <Route path="/question_raw" element={<QuestionPageRaw></QuestionPageRaw>}></Route>
+                <Route path="/question_clear" element={<QuestionPageClear></QuestionPageClear>}></Route>
+                <Route path="/question_soju" element={<QuestionPageSoju></QuestionPageSoju>}></Route>
+                <Route path="/question_fruit" element={<QuestionPageFruit></QuestionPageFruit>}></Route>
             </Routes>
         </div>
     );

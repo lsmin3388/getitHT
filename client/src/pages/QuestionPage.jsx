@@ -58,9 +58,39 @@ export default function QuestionPage() {
 
     useEffect(() => {
         // questionSlice state 변경 이후 (다음 버튼 클릭시)
-        axios.post("/api/members/alcoholtype_save/1").then(() => {
-            navigate("/"); // 다음 question 으로 넘어감
-        });
+        axios
+            .post("/api/members/alcoholtype_save/1", question)
+            .then(() => {
+                // 가장 가중치 높은 페이지로 navigate
+                let maxWeight = { type: "", weight: 0 };
+
+                for (const q in question) {
+                    console.log(q, question[q]);
+                    if (maxWeight["weight"] < question[q]) {
+                        maxWeight["type"] = q;
+                        maxWeight["weight"] = question[q];
+                    }
+                }
+
+                if (maxWeight["type"] != "") navigate(`/${maxWeight["type"]}`);
+            })
+            .catch(() => {
+                console.log("POST : request failed!");
+            })
+            .finally(() => {
+                // 가장 가중치 높은 페이지로 navigate
+                let maxWeight = { type: "", weight: 0 };
+
+                for (const q in question) {
+                    console.log(q, question[q]);
+                    if (maxWeight["weight"] < question[q]) {
+                        maxWeight["type"] = q;
+                        maxWeight["weight"] = question[q];
+                    }
+                }
+
+                if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
+            });
     }, [question]);
 
     useEffect(() => {
@@ -68,8 +98,8 @@ export default function QuestionPage() {
         document.querySelector(".btn-question-prev").addEventListener("click", onPrevBtnClick);
 
         return () => {
-            document.querySelector(".btn-question-next").removeEventListener("click", onNextBtnClick);
-            document.querySelector(".btn-question-prev").removeEventListener("click", onPrevBtnClick);
+            // document.querySelector(".btn-question-next").removeEventListener("click", onNextBtnClick);
+            // document.querySelector(".btn-question-prev").removeEventListener("click", onPrevBtnClick);
         };
     }, []);
 
