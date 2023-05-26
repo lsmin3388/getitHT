@@ -84,6 +84,16 @@ export default function QuestionPageFruit() {
         navigate("/question");
     }
 
+    function isEmpty(question){
+        // let empty = true;
+        for(const taste in question){
+            if(question[taste] != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
     useEffect(() => {
         // axios post
         let serverData = {};
@@ -92,6 +102,7 @@ export default function QuestionPageFruit() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
+        if(!isEmpty(questionMain)){
         axios({
             method: "post",
             url: "/api/characters/create/1",
@@ -112,6 +123,7 @@ export default function QuestionPageFruit() {
                 // console.log(serverData);
                 // navigate("/result");
             });
+        }
     }, [questionMain]);
 
     useEffect(() => {

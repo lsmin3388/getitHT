@@ -85,6 +85,16 @@ export default function QuestionPageSoju() {
         navigate("/question");
     }
 
+    function isEmpty(question){
+        // let empty = true;
+        for(const taste in question){
+            if(question[taste] != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
     useEffect(() => {
         // axios post
         let serverData = {};
@@ -93,7 +103,9 @@ export default function QuestionPageSoju() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
-        axios({
+        if(!isEmpty(questionMain))
+        {
+            axios({
             method: "post",
             url: "/api/characters/soju_save/1",
             data: serverData,
@@ -112,6 +124,7 @@ export default function QuestionPageSoju() {
                 // console.log(serverData);
                 // navigate("/result");
             });
+        }
     }, [questionMain]);
 
     useEffect(() => {

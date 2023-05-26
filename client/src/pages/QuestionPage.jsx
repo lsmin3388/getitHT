@@ -58,8 +58,15 @@ export default function QuestionPage() {
         dispatch(initalizeStates());
     }
 
+    function isInit(question) {
+        if(question.raw == 0 && question.soju == 0 && question.clear == 0 && question.fruit == 0) return true;
+        return false;
+    }
+
     useEffect(() => {
         // questionSlice state 변경 이후 (다음 버튼 클릭시)
+        if(!isInit(question)){
+        
         axios({
             url: "/api/members/alcoholtype_save/1",
             method: "post",
@@ -77,6 +84,7 @@ export default function QuestionPage() {
                         maxWeight["weight"] = question[q];
                     }
                 }
+                console.log(maxWeight);
 
                 if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
                 console.log("POST : request success!");
@@ -93,6 +101,7 @@ export default function QuestionPage() {
                 }
                 if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
             });
+        }
     }, [question]);
 
     useEffect(() => {
