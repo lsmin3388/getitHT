@@ -97,7 +97,7 @@ export default function QuestionPageSoju() {
             method: "post",
             url: "/api/characters/soju_save/1",
             data: serverData,
-            baseURL: BASE_URL,
+            baseURL: "http://localhost:8080",
         })
             //.post("/api/characters/soju_save/1", serverData, { baseURL: BASE_URL })
             .then(() => {

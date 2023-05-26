@@ -108,7 +108,7 @@ export default function FormPage() {
                                     url: "api/members/create",
                                     method: "post",
                                     data: data,
-                                    baseURL: BASE_URL,
+                                    baseURL: "http://localhost:8080",
                                 })
                                     .then(() => {
                                         console.log("POST : request success!");

@@ -64,7 +64,7 @@ export default function QuestionPage() {
             url: "/api/members/alcoholtype_save/1",
             method: "post",
             data: question,
-            baseURL: BASE_URL,
+            baseURL: "http://localhost:8080",
         })
             .then(() => {
                 // 가장 가중치 높은 페이지로 navigate

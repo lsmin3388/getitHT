@@ -97,7 +97,7 @@ export default function QuestionPageClear() {
             method: "post",
             url: "/api/characters/create/1",
             data: serverData,
-            baseURL: BASE_URL,
+            baseURL: "http://localhost:8080",
         })
             //.post("/api/characters/create/1", serverData, { baseURL: BASE_URL })
             .then(() => {
