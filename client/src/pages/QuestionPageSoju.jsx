@@ -93,8 +93,13 @@ export default function QuestionPageSoju() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
-        axios
-            .post("/api/characters/soju_save/1", serverData, { baseURL: BASE_URL })
+        axios({
+            method: "post",
+            url: "/api/characters/soju_save/1",
+            data: serverData,
+            baseURL: BASE_URL,
+        })
+            //.post("/api/characters/soju_save/1", serverData, { baseURL: BASE_URL })
             .then(() => {
                 console.log("POST : request success!");
                 navigate("/result");

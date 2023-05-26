@@ -93,8 +93,13 @@ export default function QuestionPageClear() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
-        axios
-            .post("/api/characters/create/1", serverData, { baseURL: BASE_URL })
+        axios({
+            method: "post",
+            url: "/api/characters/create/1",
+            data: serverData,
+            baseURL: BASE_URL,
+        })
+            //.post("/api/characters/create/1", serverData, { baseURL: BASE_URL })
             .then(() => {
                 console.log("POST : request success!");
                 navigate("/result");
