@@ -59,48 +59,47 @@ export default function QuestionPage() {
     }
 
     function isInit(question) {
-        if(question.raw == 0 && question.soju == 0 && question.clear == 0 && question.fruit == 0) return true;
+        if (question.raw == 0 && question.soju == 0 && question.clear == 0 && question.fruit == 0) return true;
         return false;
     }
 
     useEffect(() => {
         // questionSlice state 변경 이후 (다음 버튼 클릭시)
-        if(!isInit(question)){
-        
-        axios({
-            url: "/api/members/alcoholtype_save/1",
-            method: "post",
-            data: question,
-            baseURL: "http://localhost:8080",
-        })
-            .then(() => {
-                // 가장 가중치 높은 페이지로 navigate
-                let maxWeight = { type: "", weight: 0 };
-
-                for (const q in question) {
-                    console.log(q, question[q]);
-                    if (maxWeight["weight"] < question[q]) {
-                        maxWeight["type"] = q;
-                        maxWeight["weight"] = question[q];
-                    }
-                }
-                console.log(maxWeight);
-
-                if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
-                console.log("POST : request success!");
+        if (!isInit(question)) {
+            axios({
+                url: "/api/members/alcoholtype_save/1",
+                method: "post",
+                data: question,
+                baseURL: "http://localhost:8080",
             })
-            .catch(() => {
-                console.log("POST : request fail!");
-                let maxWeight = { type: "", weight: 0 };
+                .then(() => {
+                    // 가장 가중치 높은 페이지로 navigate
+                    let maxWeight = { type: "", weight: 0 };
 
-                for (const q in question) {
-                    if (maxWeight["weight"] < question[q]) {
-                        maxWeight["type"] = q;
-                        maxWeight["weight"] = question[q];
+                    for (const q in question) {
+                        console.log(q, question[q]);
+                        if (maxWeight["weight"] < question[q]) {
+                            maxWeight["type"] = q;
+                            maxWeight["weight"] = question[q];
+                        }
                     }
-                }
-                if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
-            });
+                    console.log(maxWeight);
+
+                    if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
+                    console.log("POST : request success!");
+                })
+                .catch(() => {
+                    console.log("POST : request fail!");
+                    let maxWeight = { type: "", weight: 0 };
+
+                    for (const q in question) {
+                        if (maxWeight["weight"] < question[q]) {
+                            maxWeight["type"] = q;
+                            maxWeight["weight"] = question[q];
+                        }
+                    }
+                    if (maxWeight["type"] != "") navigate(`/question_${maxWeight["type"]}`);
+                });
         }
     }, [question]);
 

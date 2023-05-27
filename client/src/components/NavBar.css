@@ -6,6 +6,7 @@ nav {
     color: var(--color-4);
 
     position: fixed;
+    z-index: 100;
 }
 
 nav ul {
@@ -39,3 +40,9 @@ nav a:visited {
     color: var(--color-4);
     text-decoration: none;
 }
+
+.sub-menu {
+    font-size: 0.9rem;
+}
+
+/* 소주 맥주 소맥 카겥일 와인 위스키 고량주 사케 */

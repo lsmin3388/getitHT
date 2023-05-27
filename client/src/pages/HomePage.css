@@ -1,23 +1,30 @@
-.home-section-wrapper {
-    display: block;
-    height: 500px;
-    width: 100%;
-
-    display: flex;
-
+.home-page-wrapper {
     background-color: var(--color-4);
 }
 
-.home-section-container {
-    height: 500px;
+.home-section-wrapper {
+    display: block;
+    height: 400px;
     width: 80%;
-    max-width: 1200px;
+    max-width: 800px;
+
+    margin: 0px auto;
+
+    display: flex;
+}
+
+.home-section-container {
+    height: 400px;
+    width: 80%;
+    max-width: 800px;
 
     padding: 40px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    color: var(--color-1);
 }
 .home-section-container p {
     margin: 0;
@@ -31,4 +38,70 @@
 
 .section-wrapper {
     padding: 30px 0px;
+}
+
+/* business */
+
+.business-section-wrapper {
+    width: 100%;
+}
+
+.business-section-container {
+    width: 80%;
+    max-width: 800px;
+
+    display: flex;
+    justify-content: space-around;
+
+    margin: 30px auto;
+}
+
+.business-section-item {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-color: var(--color-4);
+    box-shadow: 3px 3px 10px whitesmoke;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-1);
+}
+
+.item-icon {
+    width: 50px;
+    height: 50px;
+    color: var(--color-1);
+}
+
+.goals-section-wrapper {
+    background-color: var(--color-4);
+}
+
+.goal-section-container {
+    margin: 20px auto;
+    padding: 30px;
+    color: var(--color-1);
+    text-align: center;
+
+    background-color: var(--color-4);
+}
+
+.goal-section-container h4 {
+    font-weight: 800;
+}
+
+.contact-group {
+    width: 80%;
+    max-width: 500px;
+
+    margin: 30px auto;
+}
+
+.contact-name,
+.contact-email {
+    background-color: var(--color-4);
 }

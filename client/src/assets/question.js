@@ -210,7 +210,7 @@ let questionDefault = [
         ],
     },
     {
-        qString: "슬을 마셨을 때, 타는 듯한 목넘김이 좋다.",
+        qString: "술을 마셨을 때, 타는 듯한 목넘김이 좋다.",
         qWeight: [
             {
                 //매우 아니다

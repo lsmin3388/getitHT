@@ -6,17 +6,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    background-color: var(--color-4);
 }
 .form-container {
     width: 80%;
-    max-width: 1200px;
+    max-width: 600px;
     height: 100vh;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    background-color: var(--color-4);
 }
 
 .input-container {

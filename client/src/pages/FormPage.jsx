@@ -64,10 +64,15 @@ export default function FormPage() {
                             <Form.Label htmlFor="form-dropdown-region-2">선호 주종</Form.Label>
                             <Form.Select id="form-dropdown-region-2">
                                 <option>선호 주종을 선택해주세요</option>
-                                <option>증류주</option>
                                 <option>소주</option>
-                                <option>탁주</option>
                                 <option>과실주</option>
+                                <option>맥주</option>
+                                <option>칵테일</option>
+                                <option>와인</option>
+                                <option>위스키</option>
+                                <option>고량주</option>
+                                <option>사케</option>
+                                <option>기타</option>
                             </Form.Select>
                         </Form.Group>
                     </div>

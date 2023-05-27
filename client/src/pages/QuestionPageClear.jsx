@@ -85,10 +85,10 @@ export default function QuestionPageClear() {
         navigate("/question");
     }
 
-    function isEmpty(question){
+    function isEmpty(question) {
         // let empty = true;
-        for(const taste in question){
-            if(question[taste] != 0){
+        for (const taste in question) {
+            if (question[taste] != 0) {
                 return false;
             }
         }
@@ -103,7 +103,7 @@ export default function QuestionPageClear() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
-        if(!isEmpty(questionMain)){
+        if (!isEmpty(questionMain)) {
             axios({
                 method: "post",
                 url: "/api/characters/create/1",
@@ -117,7 +117,7 @@ export default function QuestionPageClear() {
                 })
                 .catch(() => {
                     console.log("POST : request fail!");
-                    // navigate("/result");
+                    navigate("/result");
                 })
                 .finally(() => {
                     console.log(questionMain);

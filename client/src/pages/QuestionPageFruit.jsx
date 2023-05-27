@@ -84,10 +84,10 @@ export default function QuestionPageFruit() {
         navigate("/question");
     }
 
-    function isEmpty(question){
+    function isEmpty(question) {
         // let empty = true;
-        for(const taste in question){
-            if(question[taste] != 0){
+        for (const taste in question) {
+            if (question[taste] != 0) {
                 return false;
             }
         }
@@ -102,27 +102,27 @@ export default function QuestionPageFruit() {
             serverData[taste] = Number(questionMain[taste]) / 4;
         }
 
-        if(!isEmpty(questionMain)){
-        axios({
-            method: "post",
-            url: "/api/characters/create/1",
-            data: serverData,
-            baseURL: "http://localhost:8080",
-        })
-            //.post("/api/characters/create/1", serverData, { baseURL: BASE_URL })
-            .then(() => {
-                console.log("POST : request success!");
-                navigate("/result");
+        if (!isEmpty(questionMain)) {
+            axios({
+                method: "post",
+                url: "/api/characters/create/1",
+                data: serverData,
+                baseURL: "http://localhost:8080",
             })
-            .catch(() => {
-                console.log("POST : request fail!");
-                // navigate("/result");
-            })
-            .finally(() => {
-                console.log(questionMain);
-                // console.log(serverData);
-                // navigate("/result");
-            });
+                //.post("/api/characters/create/1", serverData, { baseURL: BASE_URL })
+                .then(() => {
+                    console.log("POST : request success!");
+                    navigate("/result");
+                })
+                .catch(() => {
+                    console.log("POST : request fail!");
+                    navigate("/result");
+                })
+                .finally(() => {
+                    console.log(questionMain);
+                    // console.log(serverData);
+                    // navigate("/result");
+                });
         }
     }, [questionMain]);
 

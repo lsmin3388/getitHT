@@ -11,6 +11,7 @@ import QuestionPageClear from "./pages/QuestionPageClear";
 import QuestionPageSoju from "./pages/QuestionPageSoju";
 import QuestionPageFruit from "./pages/QuestionPageFruit";
 import ResultPage from "./pages/ResultPage";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -27,6 +28,8 @@ function App() {
                 <Route path="/question_fruit" element={<QuestionPageFruit></QuestionPageFruit>}></Route>
                 <Route path="/result" element={<ResultPage></ResultPage>}></Route>
             </Routes>
+
+            <Footer></Footer>
         </div>
     );
 }

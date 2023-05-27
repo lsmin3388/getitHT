@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-
+import { Button } from "react-bootstrap";
 import "./ResultPage.css";
 import { useNavigate } from "react-router-dom";
+import Title from "../components/Title";
+import ResultItem from "../components/ResultItem";
 
 export default function ResultPage() {
     const dispatch = useDispatch();
@@ -46,39 +48,55 @@ export default function ResultPage() {
             <div className="result-section-container">
                 <div className="result-section-item">
                     <h5>당신의 술 취향은</h5>
+                    <h1>{"Alcohol-Variable"}</h1>
                 </div>
 
                 <div className="result-section-item">
-                    <div className="graph-container">
-                        <p>sweet</p>
-                        <div className="graph-item"></div>
-                    </div>
+                    <img src="" alt="image_url" />
                 </div>
 
                 <div className="result-section-form">
-                    <button
-                        id="btn-restart"
-                        className="btn-result btn-highlight"
+                    <Button
+                        variant="primary"
+                        type="submit"
+                        className="btn-common btn-result"
                         onClick={() => {
                             navigate("/");
                         }}
                     >
                         다시 할래요
-                    </button>
-                    <button id="btn-shop" className="btn-result btn-highlight">
-                        구매하러 가기
-                    </button>
-                    <button id="btn-share" className="btn-result btn-highlight">
-                        결과 공유하기
-                    </button>
-                </div>
-                {/* {Object.entries(question).map((key, value) => {
-                    return <h1>{`${key}`}</h1>;
-                })}
+                    </Button>
 
-                {Object.entries(questionMain).map((key, value) => {
-                    return <h1>{`${key}`}</h1>;
-                })} */}
+                    <Button variant="primary" type="submit" className="btn-common btn-result" onClick={() => {}}>
+                        구매하러 가기
+                    </Button>
+
+                    <Button variant="primary" type="submit" className="btn-common btn-result" onClick={() => {}}>
+                        결과 공유하기
+                    </Button>
+                </div>
+
+                <div style={{ height: "100px" }}></div>
+
+                <div className="result-section-item">
+                    <div className="graph-container">
+                        <Title kr_title="결과" en_title="Result"></Title>
+                        <div className="result-item-wrapper">
+                            {Object.entries(questionMain).map((key, value) => {
+                                console.log(key[1] / 400);
+                                return (
+                                    <div className="result-item-container">
+                                        <p>{key[0]}</p>
+                                        <div className="result-item-graph-container">
+                                            <div className="result-item-graph" style={{ transform: `scale(${key[1] / 400}, 1)` }}></div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        <div className="graph-item"></div>
+                    </div>
+                </div>
             </div>
         </div>
     );
