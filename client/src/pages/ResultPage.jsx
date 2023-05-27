@@ -48,11 +48,11 @@ export default function ResultPage() {
             <div className="result-section-container">
                 <div className="result-section-item">
                     <h5>당신의 술 취향은</h5>
-                    <h1>{"Alcohol-Variable"}</h1>
+                    <h1>{"추사 40%"}</h1>
                 </div>
 
                 <div className="result-section-item">
-                    <img src="" alt="image_url" />
+                    <img src={"https://d38cxpfv0ljg7q.cloudfront.net/admin_contents/detail/Pmvo-1654844288132-THUMB.jpg"} alt="image_url" />
                 </div>
 
                 <div className="result-section-form">
@@ -88,7 +88,7 @@ export default function ResultPage() {
                                     <div className="result-item-container">
                                         <p>{key[0]}</p>
                                         <div className="result-item-graph-container">
-                                            <div className="result-item-graph" style={{ transform: `scale(${key[1] / 400}, 1)` }}></div>
+                                            <div className="result-item-graph" style={{ transform: `scale(${key[1] / 400}, 1)`, transformOrigin: "left" }}></div>
                                         </div>
                                     </div>
                                 );
