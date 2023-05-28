@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Route, Routes, Link } from "react-router-dom";
-
+import React from "react";
 import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import FormPage from "./pages/FormPage";
@@ -12,12 +12,13 @@ import QuestionPageSoju from "./pages/QuestionPageSoju";
 import QuestionPageFruit from "./pages/QuestionPageFruit";
 import ResultPage from "./pages/ResultPage";
 import Footer from "./components/Footer";
+import { HashRouter as Router } from "react-router-dom";
 
 function App() {
     return (
         <div className="App">
             <NavBar></NavBar>
-
+            <HomePage></HomePage>
             <Routes>
                 <Route path="/" element={<HomePage></HomePage>}></Route>
                 <Route path="/form" element={<FormPage></FormPage>}></Route>
@@ -27,8 +28,8 @@ function App() {
                 <Route path="/question_soju" element={<QuestionPageSoju></QuestionPageSoju>}></Route>
                 <Route path="/question_fruit" element={<QuestionPageFruit></QuestionPageFruit>}></Route>
                 <Route path="/result" element={<ResultPage></ResultPage>}></Route>
+                <Route path="/*" element={<HomePage></HomePage>}></Route>
             </Routes>
-
             <Footer></Footer>
         </div>
     );
